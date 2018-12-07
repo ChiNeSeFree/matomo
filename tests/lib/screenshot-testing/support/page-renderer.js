@@ -15,7 +15,7 @@ const parseUrl = urlModule.parse,
     formatUrl = urlModule.format;
 
 const AJAX_IDLE_THRESHOLD = 500; // same as networkIdle event
-const VERBOSE = false;
+const VERBOSE = true;
 const PAGE_METHODS_TO_PROXY = [
     '$',
     '$$',
@@ -259,7 +259,7 @@ PageRenderer.prototype._isUrlThatWeCareAbout = function (url) {
 };
 
 PageRenderer.prototype._logMessage = function (message) {
-    this.pageLogs.push(message);
+    console.log(message);
 };
 
 PageRenderer.prototype.clearCookies = function () {
@@ -334,7 +334,7 @@ PageRenderer.prototype._setupWebpageEvents = function () {
         }
 
         if (VERBOSE) {
-            this._logMessage('Requesting resource (#' + requestData.id + 'URL:' + url + ')');
+            this._logMessage('Requesting resource (#' + request.id + 'URL:' + url + ')');
         }
     });
 
